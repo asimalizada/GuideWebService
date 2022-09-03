@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="Concrete\" />
+    <Folder Include="Rules\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="ValidationRules\FluentValidation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.1" />
+    <PackageReference Include="Castle.Core" Version="5.1.0" />
+    <PackageReference Include="FluentValidation" Version="11.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Base\Core\Core.csproj" />
+    <ProjectReference Include="..\Guide.DataAccess\Guide.DataAccess.csproj" />
+    <ProjectReference Include="..\Guide.Entities\Guide.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
