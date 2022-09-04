@@ -4,7 +4,7 @@ using System;
 
 namespace Guide.Entities.Models
 {
-    public class ExerciseDetail : IDto
+    public class ExerciseDetail : IModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

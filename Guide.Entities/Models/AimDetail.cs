@@ -4,7 +4,7 @@ using System;
 
 namespace Guide.Entities.Models
 {
-    public class AimDetail : IDto
+    public class AimDetail : IModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

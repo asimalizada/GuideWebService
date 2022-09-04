@@ -1,4 +1,8 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Core.DataAccess.Concrete.EntityFramework.Contexts;
+using Core.DependencyResolvers;
+using Guide.Business.DependencyResolvers.Autofac;
 using Guide.DataAccess.Concrete.EntityFramework.Contexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +22,14 @@ builder.Services.AddDbContext<CoreContext>(options =>
 builder.Services.AddDbContext<GuideContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
+});
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterModule(new AutofacBusinessModule());
+}).ConfigureWebHostDefaults(webBuilder =>
+{
+    webBuilder.UseStartup<Program>();
 });
 
 var app = builder.Build();
