@@ -1,4 +1,5 @@
-﻿using Core.Business.Concrete;
+﻿using Core.Aspects.Autofac.Caching;
+using Core.Business.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using Guide.Business.Abstract;
@@ -21,41 +22,49 @@ namespace Guide.Business.Concrete
             base.SetValidator(new AimValidator());
         }
 
+        [CacheAspect]
         public IDataResult<List<AimDetail>> GetAimDetails()
         {
             return new SuccessDataResult<List<AimDetail>>(_aimDal.GetAimDetails(), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimDetail>> GetAimToDoDetails()
         {
             return new SuccessDataResult<List<AimDetail>>(_aimDal.GetAimToDoDetails(), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimDetail>> GetDailyAims()
         {
             return new SuccessDataResult<List<AimDetail>>(_aimDal.GetAimDetails(a => a.TimeCategoryId == AimTimeCategory.Daily), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimDetail>> GetDailyToDoAims()
         {
             return new SuccessDataResult<List<AimDetail>>(_aimDal.GetAimToDoDetails(a => a.TimeCategoryId == AimTimeCategory.Daily), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimDetail>> GetMonthlyAims()
         {
             return new SuccessDataResult<List<AimDetail>>(_aimDal.GetAimDetails(a => a.TimeCategoryId == AimTimeCategory.Monthly), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimDetail>> GetMonthlyToDoAims()
         {
             return new SuccessDataResult<List<AimDetail>>(_aimDal.GetAimToDoDetails(a => a.TimeCategoryId == AimTimeCategory.Monthly), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimDetail>> GetWeeklyAims()
         {
             return new SuccessDataResult<List<AimDetail>>(_aimDal.GetAimDetails(a => a.TimeCategoryId == AimTimeCategory.Weekly), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimDetail>> GetWeeklyToDoAims()
         {
             return new SuccessDataResult<List<AimDetail>>(_aimDal.GetAimToDoDetails(a => a.TimeCategoryId == AimTimeCategory.Weekly), Messages.DataFound);

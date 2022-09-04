@@ -7,7 +7,9 @@ namespace Guide.Business.ValidationRules.FluentValidation
     {
         public AimCategoryValidator()
         {
-
+            RuleFor(a => a.Id).NotEmpty();
+            RuleFor(a => a.Name).NotEmpty();
+            RuleFor(a => a.Name).MinimumLength(1);
         }
     }
 }

@@ -7,7 +7,9 @@ namespace Guide.Business.ValidationRules.FluentValidation
     {
         public ExerciseCategoryValidator()
         {
-
+            RuleFor(e => e.Id).NotEmpty();
+            RuleFor(e => e.Name).NotEmpty();
+            RuleFor(e => e.Name).MinimumLength(1);
         }
     }
 }

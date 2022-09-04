@@ -2,9 +2,15 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Core.DataAccess.Concrete.EntityFramework.Contexts;
 using Core.DependencyResolvers;
+using Core.Extensions;
+using Core.Utilities.IoC;
+using Core.Utilities.Security.Encryption;
+using Core.Utilities.Security.Jwt;
 using Guide.Business.DependencyResolvers.Autofac;
 using Guide.DataAccess.Concrete.EntityFramework.Contexts;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +38,35 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).Conf
     webBuilder.UseStartup<Program>();
 });
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowOrigin",
+//        builder => builder.WithOrigins("http://localhost:3000"));
+//});
+
+var configuration = ServiceTool.ServiceProvider.GetService<IConfiguration>();
+var tokenOptions = configuration.GetSection("TokenOptions").Get<TokenOptions>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidIssuer = tokenOptions.Issuer,
+            ValidAudience = tokenOptions.Audience,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
+        };
+    });
+
+builder.Services.AddDependencyResolvers(new ICoreModule[]
+{
+    new CoreModule()
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -40,6 +75,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.ConfigureCustomExceptionMiddleware();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

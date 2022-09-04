@@ -1,4 +1,5 @@
-﻿using Core.Business.Concrete;
+﻿using Core.Aspects.Autofac.Caching;
+using Core.Business.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using Guide.Business.Abstract;
@@ -18,16 +19,19 @@ namespace Guide.Business.Concrete
             base.SetValidator(new AimOperationValidator());
         }
 
+        [CacheAspect]
         public IDataResult<List<AimOperation>> GetByAim(int aimId)
         {
             return new SuccessDataResult<List<AimOperation>>(_aimOperationDal.GetAll(a => a.AimId == aimId), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimOperation>> GetByDate(DateTime date)
         {
             return new SuccessDataResult<List<AimOperation>>(_aimOperationDal.GetAll(a => a.CompleteDate == date), Messages.DataFound);
         }
 
+        [CacheAspect]
         public IDataResult<List<AimOperation>> GetByDate(DateTime from, DateTime to)
         {
             return new SuccessDataResult<List<AimOperation>>(_aimOperationDal.GetAll(a => a.CompleteDate >= from & a.CompleteDate <= to), Messages.DataFound);

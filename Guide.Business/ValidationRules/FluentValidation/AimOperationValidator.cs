@@ -7,7 +7,10 @@ namespace Guide.Business.ValidationRules.FluentValidation
     {
         public AimOperationValidator()
         {
-
+            RuleFor(a=>a.Id).NotEmpty();
+            RuleFor(a => a.CompleteDate).NotEmpty();
+            RuleFor(a=>a.AimId).NotEmpty();
+            RuleFor(a => a.AimId).GreaterThan(0);
         }
     }
 }
