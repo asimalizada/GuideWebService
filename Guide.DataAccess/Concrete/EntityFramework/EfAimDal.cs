@@ -15,7 +15,7 @@ namespace Guide.DataAccess.Concrete.EntityFramework
             using (var context = new GuideContext())
             {
                 var result = from a in filter == null ? context.Aims : context.Aims.Where(filter)
-                             join t in context.TaskCategories on a.CategoryId equals t.Id
+                             join t in context.ExerciseCategories on a.CategoryId equals t.Id
                              select new AimDetail
                              {
                                  Id = a.Id,
@@ -35,7 +35,7 @@ namespace Guide.DataAccess.Concrete.EntityFramework
             using (var context = new GuideContext())
             {
                 var result = from a in filter == null ? context.Aims : context.Aims.Where(filter)
-                             join t in context.TaskCategories on a.CategoryId equals t.Id
+                             join t in context.ExerciseCategories on a.CategoryId equals t.Id
                              join o in context.AimOperations on a.Id equals o.AimId
                              where o.CompleteDate != DateTime.Today
                              select new AimDetail

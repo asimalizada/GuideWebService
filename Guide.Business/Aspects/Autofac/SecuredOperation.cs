@@ -6,7 +6,6 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Core.Constants;
 
 namespace Guide.Business.Aspects.Autofac
 {

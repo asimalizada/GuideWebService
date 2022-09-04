@@ -28,7 +28,7 @@ namespace Guide.DataAccess.Concrete.EntityFramework.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
+            //optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
         }
     }
 }
