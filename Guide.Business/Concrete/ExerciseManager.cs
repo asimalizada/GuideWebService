@@ -6,9 +6,9 @@ using Guide.Business.Abstract;
 using Guide.Business.Constants;
 using Guide.Business.ValidationRules.FluentValidation;
 using Guide.DataAccess.Abstract;
-using Guide.Entities.Concrete;
+using Guide.Entities.Concrete.Exercises;
 using Guide.Entities.Constants;
-using Guide.Entities.Models;
+using Guide.Entities.Models.Exercises;
 
 namespace Guide.Business.Concrete
 {
@@ -22,52 +22,52 @@ namespace Guide.Business.Concrete
             base.SetValidator(new ExerciseValidator());
         }
 
-        [CacheAspect]
-        public IDataResult<List<ExerciseDetail>> GetDailyTasks()
-        {
-            return new SuccessDataResult<List<ExerciseDetail>>(_exerciseDal.GetExerciseDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Daily), Messages.DataFound);
-        }
+        //[CacheAspect]
+        //public IDataResult<List<ExerciseModel>> GetDailyTasks()
+        //{
+        //    return new SuccessDataResult<List<ExerciseModel>>(_exerciseDal.GetExerciseDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Daily), Messages.DataFound);
+        //}
 
-        [CacheAspect]
-        public IDataResult<List<ExerciseDetail>> GetDailyToDoTasks()
-        {
-            return new SuccessDataResult<List<ExerciseDetail>>(_exerciseDal.GetExerciseToDoDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Daily), Messages.DataFound);
-        }
+        //[CacheAspect]
+        //public IDataResult<List<ExerciseModel>> GetDailyToDoTasks()
+        //{
+        //    return new SuccessDataResult<List<ExerciseModel>>(_exerciseDal.GetExerciseToDoDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Daily), Messages.DataFound);
+        //}
 
-        [CacheAspect]
-        public IDataResult<List<ExerciseDetail>> GetMonthlyTasks()
-        {
-            return new SuccessDataResult<List<ExerciseDetail>>(_exerciseDal.GetExerciseDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Monthly), Messages.DataFound);
-        }
+        //[CacheAspect]
+        //public IDataResult<List<ExerciseModel>> GetMonthlyTasks()
+        //{
+        //    return new SuccessDataResult<List<ExerciseModel>>(_exerciseDal.GetExerciseDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Monthly), Messages.DataFound);
+        //}
 
-        [CacheAspect]
-        public IDataResult<List<ExerciseDetail>> GetMonthlyToDoTasks()
-        {
-            return new SuccessDataResult<List<ExerciseDetail>>(_exerciseDal.GetExerciseToDoDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Monthly), Messages.DataFound);
-        }
+        //[CacheAspect]
+        //public IDataResult<List<ExerciseModel>> GetMonthlyToDoTasks()
+        //{
+        //    return new SuccessDataResult<List<ExerciseModel>>(_exerciseDal.GetExerciseToDoDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Monthly), Messages.DataFound);
+        //}
 
-        [CacheAspect]
-        public IDataResult<List<ExerciseDetail>> GetTaskDetails()
-        {
-            return new SuccessDataResult<List<ExerciseDetail>>(_exerciseDal.GetExerciseDetails(), Messages.DataFound);
-        }
+        //[CacheAspect]
+        //public IDataResult<List<ExerciseModel>> GetTaskDetails()
+        //{
+        //    return new SuccessDataResult<List<ExerciseModel>>(_exerciseDal.GetExerciseDetails(), Messages.DataFound);
+        //}
 
-        [CacheAspect]
-        public IDataResult<List<ExerciseDetail>> GetTaskToDoDetails()
-        {
-            return new SuccessDataResult<List<ExerciseDetail>>(_exerciseDal.GetExerciseToDoDetails(), Messages.DataFound);
-        }
+        //[CacheAspect]
+        //public IDataResult<List<ExerciseModel>> GetTaskToDoDetails()
+        //{
+        //    return new SuccessDataResult<List<ExerciseModel>>(_exerciseDal.GetExerciseToDoDetails(), Messages.DataFound);
+        //}
 
-        [CacheAspect]
-        public IDataResult<List<ExerciseDetail>> GetWeeklyTasks()
-        {
-            return new SuccessDataResult<List<ExerciseDetail>>(_exerciseDal.GetExerciseDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Weekly), Messages.DataFound);
-        }
+        //[CacheAspect]
+        //public IDataResult<List<ExerciseModel>> GetWeeklyTasks()
+        //{
+        //    return new SuccessDataResult<List<ExerciseModel>>(_exerciseDal.GetExerciseDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Weekly), Messages.DataFound);
+        //}
 
-        [CacheAspect]
-        public IDataResult<List<ExerciseDetail>> GetWeeklyToDoTasks()
-        {
-            return new SuccessDataResult<List<ExerciseDetail>>(_exerciseDal.GetExerciseToDoDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Weekly), Messages.DataFound);
-        }
+        //[CacheAspect]
+        //public IDataResult<List<ExerciseModel>> GetWeeklyToDoTasks()
+        //{
+        //    return new SuccessDataResult<List<ExerciseModel>>(_exerciseDal.GetExerciseToDoDetails(t => t.TimeCategoryId == ExerciseTimeCategory.Weekly), Messages.DataFound);
+        //}
     }
 }

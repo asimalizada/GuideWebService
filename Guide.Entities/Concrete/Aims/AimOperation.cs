@@ -1,7 +1,7 @@
 ﻿using Core.Entities.Abstract;
 using System;
 
-namespace Guide.Entities.Concrete
+namespace Guide.Entities.Concrete.Aims
 {
     public class AimOperation : IEntity
     {

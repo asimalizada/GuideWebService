@@ -7,7 +7,7 @@ using Guide.Business.Abstract;
 using Guide.Business.Constants;
 using Guide.Business.ValidationRules.FluentValidation;
 using Guide.DataAccess.Abstract;
-using Guide.Entities.Concrete;
+using Guide.Entities.Concrete.Exercises;
 
 namespace Guide.Business.Concrete
 {
@@ -15,7 +15,7 @@ namespace Guide.Business.Concrete
     {
         private readonly IExerciseOperationDal _exerciseOperationDal;
 
-        protected ExerciseOperationManager(IExerciseOperationDal dal) : base(dal)
+        public ExerciseOperationManager(IExerciseOperationDal dal) : base(dal)
         {
             _exerciseOperationDal = dal;
             base.SetValidator(new ExerciseOperationValidator());

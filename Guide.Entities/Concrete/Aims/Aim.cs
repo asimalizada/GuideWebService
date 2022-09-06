@@ -1,17 +1,15 @@
 ﻿using Core.Entities.Abstract;
 using Guide.Entities.Constants;
-using System;
 
-namespace Guide.Entities.Models
+namespace Guide.Entities.Concrete.Aims
 {
-    public class ExerciseDetail : IModel
+    public class Aim : IEntity
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string CategoryName { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime? DeadLine { get; set; }
-        public ExerciseTimeCategory TimeCategoryId { get; set; }
+        public bool IsConvertedToTask { get; set; }
+        public AimTimeCategory TimeCategoryId { get; set; }
     }
 }

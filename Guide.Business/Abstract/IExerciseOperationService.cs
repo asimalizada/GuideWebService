@@ -1,6 +1,6 @@
 ﻿using Core.Business.Abstract;
 using Core.Utilities.Results.Abstract;
-using Guide.Entities.Concrete;
+using Guide.Entities.Concrete.Exercises;
 using System;
 using System.Collections.Generic;
 using System.Linq;

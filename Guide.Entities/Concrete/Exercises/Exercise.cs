@@ -1,16 +1,16 @@
 ﻿using Core.Entities.Abstract;
-using Guide.Entities.Constants;
 using System;
+using Guide.Entities.Constants;
 
-namespace Guide.Entities.Models
+namespace Guide.Entities.Concrete.Exercises
 {
-    public class AimDetail : IModel
+    public class Exercise : IEntity
     {
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string CategoryName { get; set; }
         public DateTime CreateDate { get; set; }
-        public AimTimeCategory TimeCategoryId { get; set; }
+        public DateTime? DeadLine { get; set; }
+        public ExerciseTimeCategory TimeCategoryId { get; set; }
     }
 }

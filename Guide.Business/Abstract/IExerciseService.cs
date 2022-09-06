@@ -1,24 +1,19 @@
 ﻿using Core.Business.Abstract;
 using Core.Utilities.Results.Abstract;
-using Guide.Entities.Concrete;
-using Guide.Entities.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Guide.Entities.Concrete.Exercises;
+using Guide.Entities.Models.Exercises;
 
 namespace Guide.Business.Abstract
 {
     public interface IExerciseService : IServiceRepository<Exercise>
     {
-        IDataResult<List<ExerciseDetail>> GetTaskDetails();
-        IDataResult<List<ExerciseDetail>> GetDailyTasks();
-        IDataResult<List<ExerciseDetail>> GetWeeklyTasks();
-        IDataResult<List<ExerciseDetail>> GetMonthlyTasks();
-        IDataResult<List<ExerciseDetail>> GetTaskToDoDetails();
-        IDataResult<List<ExerciseDetail>> GetDailyToDoTasks();
-        IDataResult<List<ExerciseDetail>> GetWeeklyToDoTasks();
-        IDataResult<List<ExerciseDetail>> GetMonthlyToDoTasks();
+        //IDataResult<List<ExerciseModel>> GetTaskDetails();
+        //IDataResult<List<ExerciseModel>> GetDailyTasks();
+        //IDataResult<List<ExerciseModel>> GetWeeklyTasks();
+        //IDataResult<List<ExerciseModel>> GetMonthlyTasks();
+        //IDataResult<List<ExerciseModel>> GetTaskToDoDetails();
+        //IDataResult<List<ExerciseModel>> GetDailyToDoTasks();
+        //IDataResult<List<ExerciseModel>> GetWeeklyToDoTasks();
+        //IDataResult<List<ExerciseModel>> GetMonthlyToDoTasks();
     }
 }

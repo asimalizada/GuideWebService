@@ -6,7 +6,7 @@ using Guide.Business.Abstract;
 using Guide.Business.Constants;
 using Guide.Business.ValidationRules.FluentValidation;
 using Guide.DataAccess.Abstract;
-using Guide.Entities.Concrete;
+using Guide.Entities.Concrete.Aims;
 
 namespace Guide.Business.Concrete
 {

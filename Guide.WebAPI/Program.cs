@@ -21,21 +21,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<CoreContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
-});
-builder.Services.AddDbContext<GuideContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
-});
-
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder =>
 {
     builder.RegisterModule(new AutofacBusinessModule());
-}).ConfigureWebHostDefaults(webBuilder =>
-{
-    webBuilder.UseStartup<Program>();
 });
 
 //builder.Services.AddCors(options =>
@@ -44,8 +32,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).Conf
 //        builder => builder.WithOrigins("http://localhost:3000"));
 //});
 
-var configuration = ServiceTool.ServiceProvider.GetService<IConfiguration>();
-var tokenOptions = configuration.GetSection("TokenOptions").Get<TokenOptions>();
+var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -76,7 +63,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.ConfigureCustomExceptionMiddleware();
+//app.ConfigureCustomExceptionMiddleware();
 
 app.UseAuthentication();
 

@@ -16,25 +16,31 @@ namespace Guide.Business.DependencyResolvers.Autofac
         {
             #region DataAccess
 
-            builder.RegisterType<EfAimCategoryDal>().As<IAimCategoryDal>().SingleInstance();
-            builder.RegisterType<EfAimDal>().As<IAimCategoryDal>().SingleInstance();
+            builder.RegisterType<EfAimPropertyDal>().As<IAimPropertyDal>().SingleInstance();
+            builder.RegisterType<EfAimDal>().As<IAimDal>().SingleInstance();
             builder.RegisterType<EfAimOperationDal>().As<IAimOperationDal>().SingleInstance();
-            builder.RegisterType<EfExerciseCategoryDal>().As<IExerciseCategoryDal>().SingleInstance();
+            builder.RegisterType<EfAimPropertyOptionDal>().As<IAimPropertyOptionDal>().SingleInstance();
+            builder.RegisterType<EfAimPropertyValueDal>().As<IAimPropertyValueDal>().SingleInstance();
+            builder.RegisterType<EfExercisePropertyDal>().As<IExercisePropertyDal>().SingleInstance();
             builder.RegisterType<EfExerciseDal>().As<IExerciseDal>().SingleInstance();
             builder.RegisterType<EfExerciseOperationDal>().As<IExerciseOperationDal>().SingleInstance();
+            builder.RegisterType<EfExercisePropertyOptionDal>().As<IExercisePropertyOptionDal>().SingleInstance();
+            builder.RegisterType<EfExercisePropertyValueDal>().As<IExercisePropertyValueDal>().SingleInstance();
 
             #endregion
 
             #region Business
 
-
-
-            #endregion
-
-            #region Other
-
-            //builder.RegisterType<AuthManager>().As<IAuthService>();
-            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+            builder.RegisterType<AimPropertyManager>().As<IAimPropertyService>().SingleInstance();
+            builder.RegisterType<AimManager>().As<IAimService>().SingleInstance();
+            builder.RegisterType<AimOperationManager>().As<IAimOperationService>().SingleInstance();
+            builder.RegisterType<AimPropertyOptionManager>().As<IAimPropertyOptionService>().SingleInstance();
+            builder.RegisterType<AimPropertyValueManager>().As<IAimPropertyValueService>().SingleInstance();
+            builder.RegisterType<ExercisePropertyManager>().As<IExercisePropertyService>().SingleInstance();
+            builder.RegisterType<ExerciseManager>().As<IExerciseService>().SingleInstance();
+            builder.RegisterType<ExerciseOperationManager>().As<IExerciseOperationService>().SingleInstance();
+            builder.RegisterType<ExercisePropertyOptionManager>().As<IExercisePropertyOptionService>().SingleInstance();
+            builder.RegisterType<ExercisePropertyValueManager>().As<IExercisePropertyValueService>().SingleInstance();
 
             #endregion
 
