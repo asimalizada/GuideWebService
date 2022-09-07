@@ -1,13 +1,14 @@
 ﻿using Core.WebAPI;
 using Guide.Business.Abstract;
 using Guide.Entities.Concrete.Aims;
+using Guide.Entities.Models.ApiModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Guide.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AimsController : BaseController<Aim, IAimService>
+    public class AimsController : BaseController<IAimService, Aim, AimAddModel, AimUpdateModel, AimDeleteModel>
     {
         private readonly IAimService _service;
 

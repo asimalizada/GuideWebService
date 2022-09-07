@@ -1,11 +1,9 @@
 ﻿using Core.Entities.Abstract;
-using Guide.Entities.Concrete.Aims;
 using Guide.Entities.Constants;
-using System;
 
-namespace Guide.Entities.Models.Aims
+namespace Guide.Entities.Models.ApiModels
 {
-    public class AimModel : IModel
+    public class AimUpdateModel : IUpdateModel
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -13,6 +11,5 @@ namespace Guide.Entities.Models.Aims
         public DateTime CreateDate { get; set; }
         public bool IsConvertedToTask { get; set; }
         public AimTimeCategory TimeCategoryId { get; set; }
-        public List<AimPropertyValue> Properties { get; set; }
     }
 }

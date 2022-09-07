@@ -8,6 +8,9 @@ namespace Guide.DataAccess.Abstract
 {
     public interface IAimDal : IEntityRepository<Aim>
     {
+        List<AimModel> GetAims(Expression<Func<Aim, bool>> filter = null);
+        List<AimModel> GetAims(List<Aim> aims);
+
         //List<AimModel> GetAimDetails(Expression<Func<Aim, bool>> filter = null);
         //List<AimModel> GetAimToDoDetails(Expression<Func<Aim, bool>> filter = null);
         //double GetDailyReport(DateTime date);

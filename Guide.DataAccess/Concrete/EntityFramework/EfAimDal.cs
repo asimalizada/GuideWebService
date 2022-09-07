@@ -185,5 +185,54 @@ namespace Guide.DataAccess.Concrete.EntityFramework
         //        return result.ToList();
         //    }
         //}
+
+        public List<AimModel> GetAims(Expression<Func<Aim, bool>> filter = null)
+        {
+            var result = new List<AimModel>();
+            using GuideContext context = new();
+            var aims = filter == null ? context.Aims.ToList() : context.Aims.Where(filter).ToList();
+
+            foreach (var aim in aims)
+            {
+                var temp = new AimModel
+                {
+                    Id = aim.Id,
+                    Title = aim.Title,
+                    Description = aim.Description,
+                    CreateDate = aim.CreateDate,
+                    IsConvertedToTask = aim.IsConvertedToTask,
+                    TimeCategoryId = aim.TimeCategoryId,
+                    Properties = context.AimPropertyValues.Where(a => a.AimId == aim.Id).ToList()
+                };
+
+                result.Add(temp);
+            }
+
+            return result;
+        }
+
+        public List<AimModel> GetAims(List<Aim> aims)
+        {
+            var result = new List<AimModel>();
+            using GuideContext context = new();
+
+            foreach (var aim in aims)
+            {
+                var temp = new AimModel
+                {
+                    Id = aim.Id,
+                    Title = aim.Title,
+                    Description = aim.Description,
+                    CreateDate = aim.CreateDate,
+                    IsConvertedToTask = aim.IsConvertedToTask,
+                    TimeCategoryId = aim.TimeCategoryId,
+                    Properties = context.AimPropertyValues.Where(a => a.AimId == aim.Id).ToList()
+                };
+
+                result.Add(temp);
+            }
+
+            return result;
+        }
     }
 }
