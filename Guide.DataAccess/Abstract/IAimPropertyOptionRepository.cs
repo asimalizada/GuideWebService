@@ -3,7 +3,7 @@ using Guide.Entities.Concrete.Aims;
 
 namespace Guide.DataAccess.Abstract
 {
-    public interface IAimPropertyOptionRepository : IRepository<AimPropertyOption>, IAsyncRepository<AimPropertyOption>
+    public interface IAimPropertyOptionRepository : IExtendedRepository<AimPropertyOption>
     {
     }
 }

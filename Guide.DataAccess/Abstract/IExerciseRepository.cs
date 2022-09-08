@@ -3,7 +3,7 @@ using Guide.Entities.Concrete.Exercises;
 
 namespace Guide.DataAccess.Abstract
 {
-    public interface IExerciseRepository : IRepository<Exercise>, IAsyncRepository<Exercise>
+    public interface IExerciseRepository : IExtendedRepository<Exercise>
     {
         //List<ExerciseModel> GetExerciseDetails(Expression<Func<Exercise, bool>> filter = null);
         //List<ExerciseModel> GetExerciseToDoDetails(Expression<Func<Exercise, bool>> filter = null);

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Guide.DataAccess.Abstract
 {
-    public interface IAimRepository : IRepository<Aim>, IAsyncRepository<Aim>
+    public interface IAimRepository : IExtendedRepository<Aim>
     {
         List<AimModel> GetAims(Expression<Func<Aim, bool>> filter = null);
         List<AimModel> GetAims(List<Aim> aims);
