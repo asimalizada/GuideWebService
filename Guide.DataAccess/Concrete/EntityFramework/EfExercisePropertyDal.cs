@@ -1,4 +1,4 @@
-﻿using Core.DataAccess.Concrete.EntityFramework;
+﻿using Core.DataAccess.Repositories.EntityFramework;
 using Guide.DataAccess.Abstract;
 using Guide.DataAccess.Concrete.EntityFramework.Contexts;
 using Guide.Entities.Concrete.Exercises;

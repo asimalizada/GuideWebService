@@ -1,11 +1,10 @@
-﻿using Core.Entities.Abstract;
+﻿using Core.Entities.Concrete;
 using Guide.Entities.Constants;
 
 namespace Guide.Entities.Concrete.Aims
 {
-    public class Aim : IEntity
+    public class Aim : Entity
     {
-        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime CreateDate { get; set; }

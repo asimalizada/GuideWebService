@@ -1,11 +1,10 @@
-﻿using Core.Entities.Abstract;
+﻿using Core.Entities.Concrete;
 using Guide.Entities.Constants;
 
 namespace Guide.Entities.Concrete.Aims
 {
-    public class AimProperty : IEntity
+    public class AimProperty : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public AimPropertyType Type { get; set; }
     }

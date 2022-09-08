@@ -2,11 +2,14 @@
 using Guide.Entities.Concrete.Aims;
 using Guide.Entities.Concrete.Exercises;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Guide.DataAccess.Concrete.EntityFramework.Contexts
 {
     public class GuideContext : DbContext
     {
+        protected IConfiguration Configuration { get; }
+
         #region DbSet
 
         public DbSet<Aim> Aims { get; set; }
@@ -23,14 +26,16 @@ namespace Guide.DataAccess.Concrete.EntityFramework.Contexts
 
         #endregion
 
-        public GuideContext()
+        public GuideContext(DbContextOptions<GuideContext> options, IConfiguration configuration) : base(options)
         {
-
+            Configuration = configuration;
         }
 
-        public GuideContext(DbContextOptions<GuideContext> options) : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            //optionsBuilder.UseSqlServer(@"server = (localdb)\MSSQLLocalDB; Database = GuideDb; Trusted_connection = true");
+            if (!optionsBuilder.IsConfigured)
+                base.OnConfiguring(optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -40,11 +45,6 @@ namespace Guide.DataAccess.Concrete.EntityFramework.Contexts
             modelBuilder.ApplyConfiguration(new AimMap());
             //modelBuilder.Configurations.Add(new AimOperationMap());
             //modelBuilder.Configurations.Add(new TaskOperationMap());
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"server = (localdb)\MSSQLLocalDB; Database = GuideDb; Trusted_connection = true");
         }
     }
 }

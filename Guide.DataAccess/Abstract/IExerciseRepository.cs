@@ -1,12 +1,9 @@
-﻿using Core.DataAccess.Abstract;
+﻿using Core.DataAccess.Repositories;
 using Guide.Entities.Concrete.Exercises;
-using Guide.Entities.Models;
-using Guide.Entities.Models.Exercises;
-using System.Linq.Expressions;
 
 namespace Guide.DataAccess.Abstract
 {
-    public interface IExerciseDal : IEntityRepository<Exercise>
+    public interface IExerciseRepository : IRepository<Exercise>, IAsyncRepository<Exercise>
     {
         //List<ExerciseModel> GetExerciseDetails(Expression<Func<Exercise, bool>> filter = null);
         //List<ExerciseModel> GetExerciseToDoDetails(Expression<Func<Exercise, bool>> filter = null);

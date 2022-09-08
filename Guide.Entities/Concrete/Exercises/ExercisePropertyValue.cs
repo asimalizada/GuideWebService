@@ -1,10 +1,9 @@
-﻿using Core.Entities.Abstract;
+﻿using Core.Entities.Concrete;
 
 namespace Guide.Entities.Concrete.Exercises
 {
-    public class ExercisePropertyValue : IEntity
+    public class ExercisePropertyValue : Entity
     {
-        public int Id { get; set; }
         public string Value { get; set; }
         public int ExerciseId { get; set; }
         public int PropertyId { get; set; }

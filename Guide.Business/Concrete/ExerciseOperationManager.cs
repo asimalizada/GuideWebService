@@ -1,7 +1,7 @@
 ﻿using Core.Aspects.Autofac.Caching;
 using Core.Business.Abstract;
 using Core.Business.Concrete;
-using Core.Utilities.Results.Abstract;
+using Core.Features.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using Guide.Business.Abstract;
 using Guide.Business.Constants;

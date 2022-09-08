@@ -1,5 +1,5 @@
 ﻿using Core.Business.Abstract;
-using Core.Utilities.Results.Abstract;
+using Core.Features.Results.Abstract;
 using Guide.Entities.Concrete.Aims;
 
 namespace Guide.Business.Abstract

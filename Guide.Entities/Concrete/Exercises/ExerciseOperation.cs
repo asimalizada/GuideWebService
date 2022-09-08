@@ -1,10 +1,9 @@
-﻿using Core.Entities.Abstract;
+﻿using Core.Entities.Concrete;
 
 namespace Guide.Entities.Concrete.Exercises
 {
-    public class ExerciseOperation : IEntity
+    public class ExerciseOperation : Entity
     {
-        public int Id { get; set; }
         public DateTime CompleteDate { get; set; }
         public int ExerciseId { get; set; }
     }

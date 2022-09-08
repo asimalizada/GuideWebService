@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Core.Entities.Abstract;
 
 namespace Guide.Entities.Models
 {
-    public class WeeklyReport
+    public class WeeklyReport : IModel
     {
         public double Monday { get; set; }
         public double Tuesday { get; set; }

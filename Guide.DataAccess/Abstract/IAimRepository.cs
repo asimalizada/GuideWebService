@@ -1,12 +1,11 @@
-﻿using Core.DataAccess.Abstract;
+﻿using Core.DataAccess.Repositories;
 using Guide.Entities.Concrete.Aims;
-using Guide.Entities.Models;
 using Guide.Entities.Models.Aims;
 using System.Linq.Expressions;
 
 namespace Guide.DataAccess.Abstract
 {
-    public interface IAimDal : IEntityRepository<Aim>
+    public interface IAimRepository : IRepository<Aim>, IAsyncRepository<Aim>
     {
         List<AimModel> GetAims(Expression<Func<Aim, bool>> filter = null);
         List<AimModel> GetAims(List<Aim> aims);
