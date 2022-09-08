@@ -12,7 +12,7 @@ namespace Guide.Business.ValidationRules.FluentValidation
             RuleFor(a => a.Description).NotNull();
             RuleFor(a => a.Description).MinimumLength(1);
             RuleFor(a => a.CreateDate).NotNull();
-            RuleFor(a => a.IsConvertedToTask).NotNull();
+            RuleFor(a => a.IsConvertedToExercise).NotNull();
             RuleFor(a => a.TimeCategoryId).NotNull();
         }
     }

@@ -1,8 +1,5 @@
 ﻿using Core.Business.Abstract;
-using Core.Utilities.Results.Abstract;
 using Guide.Entities.Concrete.Aims;
-using Guide.Entities.Models;
-using Guide.Entities.Models.Aims;
 
 namespace Guide.Business.Abstract
 {

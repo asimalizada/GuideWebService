@@ -5,7 +5,11 @@ using Guide.Entities.Concrete.Exercises;
 
 namespace Guide.DataAccess.Concrete.EntityFramework
 {
-    public class EfExercisePropertyDal : EfEntityRepositoryBase<ExerciseProperty, GuideContext>, IExercisePropertyDal
+    public class EfExerciseOperationRepository : EfRepositoryBase<ExerciseOperation, GuideContext>, IExerciseOperationRepository
     {
+        public EfExerciseOperationRepository(GuideContext context) : base(context)
+        {
+
+        }
     }
 }

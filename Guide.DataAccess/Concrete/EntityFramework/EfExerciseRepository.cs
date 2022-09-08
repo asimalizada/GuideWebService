@@ -2,16 +2,16 @@
 using Guide.DataAccess.Abstract;
 using Guide.DataAccess.Concrete.EntityFramework.Contexts;
 using Guide.Entities.Concrete.Exercises;
-using Guide.Entities.Constants;
-using Guide.Entities.Models;
-using Guide.Entities.Models.Exercises;
-using System.Linq;
-using System.Linq.Expressions;
 
 namespace Guide.DataAccess.Concrete.EntityFramework
 {
-    public class EfExerciseDal : EfEntityRepositoryBase<Exercise, GuideContext>, IExerciseDal
+    public class EfExerciseRepository : EfRepositoryBase<Exercise, GuideContext>, IExerciseRepository
     {
+        public EfExerciseRepository(GuideContext context) : base(context)
+        {
+
+        }
+
         //public List<ExerciseModel> GetExerciseDetails(Expression<Func<Exercise, bool>> filter = null)
         //{
         //    using (var context = new GuideContext())

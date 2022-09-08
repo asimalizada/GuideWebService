@@ -7,5 +7,17 @@ namespace Guide.Entities.Concrete.Exercises
     {
         public string Name { get; set; }
         public ExercisePropertyType Type { get; set; }
+
+        public ExerciseProperty()
+        {
+
+        }
+
+        public ExerciseProperty(int id, string name, ExercisePropertyType type) : this()
+        {
+            Id = id;
+            Name = name;
+            Type = type;
+        }
     }
 }

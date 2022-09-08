@@ -1,22 +1,17 @@
-﻿using Core.Aspects.Autofac.Caching;
-using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
-using Guide.Business.Abstract;
-using Guide.Business.Constants;
+﻿using Guide.Business.Abstract;
 using Guide.DataAccess.Abstract;
-using Guide.Entities.Models;
 
 namespace Guide.Business.Concrete
 {
     public class ReportManager : IReportService
     {
-        private readonly IAimDal _aimDal;
-        private readonly IExerciseDal _exerciseDal;
+        private readonly IAimRepository _aimRepository;
+        private readonly IExerciseRepository _exerciseRepository;
 
-        public ReportManager(IExerciseDal exerciseDal, IAimDal aimDal)
+        public ReportManager(IExerciseRepository exerciseRepository, IAimRepository aimRepository)
         {
-            _exerciseDal = exerciseDal;
-            _aimDal = aimDal;
+            _exerciseRepository = exerciseRepository;
+            _aimRepository = aimRepository;
         }
 
         //[CacheAspect]

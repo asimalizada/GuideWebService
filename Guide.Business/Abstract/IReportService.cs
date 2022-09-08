@@ -1,7 +1,4 @@
-﻿using Core.Utilities.Results.Abstract;
-using Guide.Entities.Models;
-
-namespace Guide.Business.Abstract
+﻿namespace Guide.Business.Abstract
 {
     public interface IReportService
     {

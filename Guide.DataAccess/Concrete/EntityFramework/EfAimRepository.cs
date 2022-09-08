@@ -2,15 +2,18 @@
 using Guide.DataAccess.Abstract;
 using Guide.DataAccess.Concrete.EntityFramework.Contexts;
 using Guide.Entities.Concrete.Aims;
-using Guide.Entities.Constants;
-using Guide.Entities.Models;
 using Guide.Entities.Models.Aims;
 using System.Linq.Expressions;
 
 namespace Guide.DataAccess.Concrete.EntityFramework
 {
-    public class EfAimDal : EfEntityRepositoryBase<Aim, GuideContext>, IAimDal
+    public class EfAimRepository : EfRepositoryBase<Aim, GuideContext>, IAimRepository
     {
+        public EfAimRepository(GuideContext context) : base(context)
+        {
+
+        }
+
         //public List<AimModel> GetAimDetails(Expression<Func<Aim, bool>> filter = null)
         //{
         //    using (var context = new GuideContext())
@@ -189,8 +192,7 @@ namespace Guide.DataAccess.Concrete.EntityFramework
         public List<AimModel> GetAims(Expression<Func<Aim, bool>> filter = null)
         {
             var result = new List<AimModel>();
-            using GuideContext context = new();
-            var aims = filter == null ? context.Aims.ToList() : context.Aims.Where(filter).ToList();
+            var aims = filter == null ? Context.Aims.ToList() : Context.Aims.Where(filter).ToList();
 
             foreach (var aim in aims)
             {
@@ -200,9 +202,9 @@ namespace Guide.DataAccess.Concrete.EntityFramework
                     Title = aim.Title,
                     Description = aim.Description,
                     CreateDate = aim.CreateDate,
-                    IsConvertedToTask = aim.IsConvertedToTask,
+                    IsConvertedToTask = aim.IsConvertedToExercise,
                     TimeCategoryId = aim.TimeCategoryId,
-                    Properties = context.AimPropertyValues.Where(a => a.AimId == aim.Id).ToList()
+                    Properties = Context.AimPropertyValues.Where(a => a.AimId == aim.Id).ToList()
                 };
 
                 result.Add(temp);
@@ -214,7 +216,6 @@ namespace Guide.DataAccess.Concrete.EntityFramework
         public List<AimModel> GetAims(List<Aim> aims)
         {
             var result = new List<AimModel>();
-            using GuideContext context = new();
 
             foreach (var aim in aims)
             {
@@ -224,9 +225,9 @@ namespace Guide.DataAccess.Concrete.EntityFramework
                     Title = aim.Title,
                     Description = aim.Description,
                     CreateDate = aim.CreateDate,
-                    IsConvertedToTask = aim.IsConvertedToTask,
+                    IsConvertedToTask = aim.IsConvertedToExercise,
                     TimeCategoryId = aim.TimeCategoryId,
-                    Properties = context.AimPropertyValues.Where(a => a.AimId == aim.Id).ToList()
+                    Properties = Context.AimPropertyValues.Where(a => a.AimId == aim.Id).ToList()
                 };
 
                 result.Add(temp);

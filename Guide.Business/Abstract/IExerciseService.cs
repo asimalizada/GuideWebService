@@ -1,7 +1,5 @@
 ﻿using Core.Business.Abstract;
-using Core.Utilities.Results.Abstract;
 using Guide.Entities.Concrete.Exercises;
-using Guide.Entities.Models.Exercises;
 
 namespace Guide.Business.Abstract
 {

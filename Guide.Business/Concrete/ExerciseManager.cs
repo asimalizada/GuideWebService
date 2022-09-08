@@ -1,24 +1,18 @@
-﻿using Core.Aspects.Autofac.Caching;
-using Core.Business.Concrete;
-using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
+﻿using Core.Business.Concrete;
 using Guide.Business.Abstract;
-using Guide.Business.Constants;
 using Guide.Business.ValidationRules.FluentValidation;
 using Guide.DataAccess.Abstract;
 using Guide.Entities.Concrete.Exercises;
-using Guide.Entities.Constants;
-using Guide.Entities.Models.Exercises;
 
 namespace Guide.Business.Concrete
 {
-    public class ExerciseManager : ManagerRepositoryBase<Exercise, IExerciseDal>, IExerciseService
+    public class ExerciseManager : ManagerRepositoryBase<Exercise, IExerciseRepository>, IExerciseService
     {
-        private readonly IExerciseDal _exerciseDal;
+        private readonly IExerciseRepository _exerciseRepository;
 
-        public ExerciseManager(IExerciseDal dal) : base(dal)
+        public ExerciseManager(IExerciseRepository repository) : base(repository)
         {
-            _exerciseDal = dal;
+            _exerciseRepository = repository;
             base.SetValidator(new ExerciseValidator());
         }
 

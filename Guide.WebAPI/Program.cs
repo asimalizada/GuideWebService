@@ -6,6 +6,8 @@ using Core.Extensions;
 using Core.Features.IoC;
 using Core.Features.Security.Encryption;
 using Core.Features.Security.Jwt;
+using Core.WebAPI;
+using Guide.Business;
 using Guide.Business.DependencyResolvers.Autofac;
 using Guide.DataAccess.Concrete.EntityFramework.Contexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -20,6 +22,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCoreServices(builder.Configuration);
+builder.Services.AddGuideServices(builder.Configuration);
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder =>
 {
@@ -63,7 +67,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.ConfigureCustomExceptionMiddleware();
+app.ConfigureExceptionMiddleware();
 
 app.UseAuthentication();
 

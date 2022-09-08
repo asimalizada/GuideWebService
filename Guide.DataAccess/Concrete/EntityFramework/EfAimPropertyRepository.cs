@@ -2,13 +2,14 @@
 using Guide.DataAccess.Abstract;
 using Guide.DataAccess.Concrete.EntityFramework.Contexts;
 using Guide.Entities.Concrete.Aims;
-using Guide.Entities.Constants;
-using Guide.Entities.Models;
-using System.Linq.Expressions;
 
 namespace Guide.DataAccess.Concrete.EntityFramework
 {
-    public class EfAimOperationDal : EfEntityRepositoryBase<AimOperation, GuideContext>, IAimOperationDal
+    public class EfAimPropertyRepository : EfRepositoryBase<AimProperty, GuideContext>, IAimPropertyRepository
     {
+        public EfAimPropertyRepository(GuideContext context) : base(context)
+        {
+
+        }
     }
 }

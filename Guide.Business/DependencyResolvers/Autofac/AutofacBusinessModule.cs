@@ -1,10 +1,9 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
+using Castle.DynamicProxy;
+using Core.Features.Interceptors;
 using Guide.Business.Abstract;
 using Guide.Business.Concrete;
-using Castle.DynamicProxy;
-using Core.Utilities.Interceptors;
-using Core.Utilities.Security.Jwt;
 using Guide.DataAccess.Abstract;
 using Guide.DataAccess.Concrete.EntityFramework;
 
@@ -16,16 +15,16 @@ namespace Guide.Business.DependencyResolvers.Autofac
         {
             #region DataAccess
 
-            builder.RegisterType<EfAimPropertyDal>().As<IAimPropertyDal>().SingleInstance();
-            builder.RegisterType<EfAimDal>().As<IAimDal>().SingleInstance();
-            builder.RegisterType<EfAimOperationDal>().As<IAimOperationDal>().SingleInstance();
-            builder.RegisterType<EfAimPropertyOptionDal>().As<IAimPropertyOptionDal>().SingleInstance();
-            builder.RegisterType<EfAimPropertyValueDal>().As<IAimPropertyValueDal>().SingleInstance();
-            builder.RegisterType<EfExercisePropertyDal>().As<IExercisePropertyDal>().SingleInstance();
-            builder.RegisterType<EfExerciseDal>().As<IExerciseDal>().SingleInstance();
-            builder.RegisterType<EfExerciseOperationDal>().As<IExerciseOperationDal>().SingleInstance();
-            builder.RegisterType<EfExercisePropertyOptionDal>().As<IExercisePropertyOptionDal>().SingleInstance();
-            builder.RegisterType<EfExercisePropertyValueDal>().As<IExercisePropertyValueDal>().SingleInstance();
+            builder.RegisterType<EfAimPropertyRepository>().As<IAimPropertyRepository>().SingleInstance();
+            builder.RegisterType<EfAimRepository>().As<IAimRepository>().SingleInstance();
+            builder.RegisterType<EfAimOperationRepository>().As<IAimOperationRepository>().SingleInstance();
+            builder.RegisterType<EfAimPropertyOptionRepository>().As<IAimPropertyOptionRepository>().SingleInstance();
+            builder.RegisterType<EfAimPropertyValueRepository>().As<IAimPropertyValueRepository>().SingleInstance();
+            builder.RegisterType<EfExercisePropertyRepository>().As<IExercisePropertyRepository>().SingleInstance();
+            builder.RegisterType<EfExerciseRepository>().As<IExerciseRepository>().SingleInstance();
+            builder.RegisterType<EfExerciseOperationRepository>().As<IExerciseOperationRepository>().SingleInstance();
+            builder.RegisterType<EfExercisePropertyOptionRepository>().As<IExercisePropertyOptionRepository>().SingleInstance();
+            builder.RegisterType<EfExercisePropertyValueRepository>().As<IExercisePropertyValueRepository>().SingleInstance();
 
             #endregion
 

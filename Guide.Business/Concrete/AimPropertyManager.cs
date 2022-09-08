@@ -6,9 +6,9 @@ using Guide.Entities.Concrete.Aims;
 
 namespace Guide.Business.Concrete
 {
-    public class AimPropertyManager : ManagerRepositoryBase<AimProperty, IAimPropertyDal>, IAimPropertyService
+    public class AimPropertyManager : ManagerRepositoryBase<AimProperty, IAimPropertyRepository>, IAimPropertyService
     {
-        public AimPropertyManager(IAimPropertyDal dal) : base(dal)
+        public AimPropertyManager(IAimPropertyRepository repository) : base(repository)
         {
             base.SetValidator(new AimPropertyValidator());
         }

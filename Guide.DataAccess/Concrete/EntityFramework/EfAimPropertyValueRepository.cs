@@ -5,7 +5,11 @@ using Guide.Entities.Concrete.Aims;
 
 namespace Guide.DataAccess.Concrete.EntityFramework
 {
-    public class EfAimPropertyOptionDal : EfEntityRepositoryBase<AimPropertyOption, GuideContext>, IAimPropertyOptionDal
+    public class EfAimPropertyValueRepository : EfRepositoryBase<AimPropertyValue, GuideContext>, IAimPropertyValueRepository
     {
+        public EfAimPropertyValueRepository(GuideContext context) : base(context)
+        {
+
+        }
     }
 }

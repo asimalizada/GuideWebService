@@ -6,9 +6,9 @@ using Guide.Entities.Concrete.Exercises;
 
 namespace Guide.Business.Concrete
 {
-    public class ExercisePropertyValueManager : ManagerRepositoryBase<ExercisePropertyValue, IExercisePropertyValueDal>, IExercisePropertyValueService
+    public class ExercisePropertyValueManager : ManagerRepositoryBase<ExercisePropertyValue, IExercisePropertyValueRepository>, IExercisePropertyValueService
     {
-        public ExercisePropertyValueManager(IExercisePropertyValueDal dal) : base(dal)
+        public ExercisePropertyValueManager(IExercisePropertyValueRepository repository) : base(repository)
         {
             base.SetValidator(new ExercisePropertyValueValidator());
         }

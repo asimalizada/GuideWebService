@@ -1,8 +1,6 @@
 ﻿using Guide.Entities.Concrete.Aims;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
 
 namespace Guide.DataAccess.Concrete.EntityFramework.Mappings
 {
@@ -20,7 +18,7 @@ namespace Guide.DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(a => a.Title).HasColumnName("Title");
             builder.Property(a => a.Description).HasColumnName("Description");
             builder.Property(a => a.CreateDate).HasColumnName("CreateDate");
-            builder.Property(a => a.IsConvertedToTask).HasColumnName("IsConvertedToTask");
+            builder.Property(a => a.IsConvertedToExercise).HasColumnName("IsConvertedToTask");
             builder.Property(a => a.TimeCategoryId).HasColumnName("TimeCategoryId");
         }
     }
